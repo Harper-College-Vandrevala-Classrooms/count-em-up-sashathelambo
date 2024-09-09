@@ -57,4 +57,8 @@ public class GroceryCounter {
         this.counter = 0;
         this.overflows = 0;
     }
+
+    public static void main(String[] args) {
+        System.exit(1);
+    }
 }
