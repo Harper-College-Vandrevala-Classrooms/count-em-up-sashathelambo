@@ -41,10 +41,10 @@ public class TestGroceryCounter {
   @Test
   void testOverflow() {
     for (int i = 0; i < 100; i++) {
-      counter.tens();
+      counter.tens();  // Adds 1000 each time, causing an overflow after 10 iterations
     }
     assertEquals("$0.00", counter.total());
-    assertEquals(1, counter.number_of_overflows());
+    assertEquals(10, counter.number_of_overflows()); // 10 overflows after 100 increments
   }
 
   @Test
@@ -56,8 +56,18 @@ public class TestGroceryCounter {
   }
 
   @Test
-  void itWorks() {
-    assertEquals(true, true);
+  void testMultipleIncrements() {
+    counter.tens();   // Adds $10.00
+    counter.ones();    // Adds $1.00
+    counter.tenths();  // Adds $0.10
+    counter.hundredths(); // Adds $0.01
+
+    assertEquals("$11.11", counter.total());
+    assertEquals(0, counter.number_of_overflows());
   }
 
+  @Test
+  void itWorks() {
+    assertTrue(true);
+  }
 }
