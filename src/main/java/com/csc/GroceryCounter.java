@@ -3,7 +3,7 @@ package com.csc;
 public class GroceryCounter {
     private int counter;
     private int overflows;
-    private int maxCounterValue;
+    private final int maxCounterValue;
 
     public GroceryCounter(int startingValue, int maxCounterValue) {
         this.maxCounterValue = maxCounterValue;
