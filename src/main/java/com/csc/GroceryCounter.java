@@ -3,9 +3,15 @@ package com.csc;
 public class GroceryCounter {
     private int counter;
     private int overflows;
+    private int maxCounterValue;
 
-    public GroceryCounter() {
-        this.counter = 0;
+    public GroceryCounter(int startingValue, int maxCounterValue) {
+        this.maxCounterValue = maxCounterValue;
+        if (startingValue >= 0 && startingValue <= maxCounterValue) {
+            this.counter = startingValue;
+        } else {
+            this.counter = 0;
+        }
         this.overflows = 0;
     }
 
@@ -34,8 +40,8 @@ public class GroceryCounter {
     }
 
     private void checkOverflow() {
-        if (this.counter >= 10000) {
-            this.counter -= 10000;
+        if (this.counter >= maxCounterValue) {
+            this.counter -= maxCounterValue;
             this.overflows++;
         }
     }
