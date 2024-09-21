@@ -1,7 +1,7 @@
 package com.csc;
 
-import static org.junit.jupiter.api.Assertions.*;
-
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -11,7 +11,7 @@ public class TestGroceryCounter {
 
   @BeforeEach
   void setUp() {
-    counter = new GroceryCounter();
+    counter = new GroceryCounter(0, 10000); // Initialize counter with starting value 0 and max value 10000
   }
 
   @Test
